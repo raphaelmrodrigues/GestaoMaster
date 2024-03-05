@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Login {% endblock %}
+
+{% block 'conteudo' %}
+
+
+    <div class="container">
+        <br>
+        {% if status == '0'%}
+        <div class="alert alert-success" role="alert">
+            Cadastro realizado com sucesso!
+        </div>
+        {% endif %}
+
+        {% if status == '1'%}
+        <div class="alert alert-danger" role="alert">
+            Campo(s) de nome e/ou e-mail inválidos!
+        </div>
+        {% endif %}
+
+        {% if status == '2'%}
+        <div class="alert alert-danger" role="alert">
+            Campo de senha deve conter no mínimo 8 caracteres!
+        </div>
+        {% endif %}
+
+        {% if status == '3'%}
+        <div class="alert alert-danger" role="alert">
+            Usuário já cadastrado!
+        </div>
+        {% endif %}
+
+        {% if status == '4'%}
+        <div class="alert alert-danger" role="alert">
+            Falha na comunicação com o banco de dados. Erro interno do sistema.
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md">
+
+            </div>
+            <div class="col-md">
+                <br>
+                <h1>Cadastre-se</h1>
+                <hr>
+
+                <form method="POST" action="{% url 'valida_cadastro' %}">{% csrf_token %}
+                    <label>Nome</label>
+                    <input name="nome" class="form-control" type="text" placeholder="Nome...">
+                    <br>
+                    <label>Email</label>
+                    <input name="email" class="form-control" type="text" placeholder="E-mail...">
+                    <br>
+                    <label>Senha</label>
+                    <input name="senha" class="form-control" type="password" placeholder="Senha...">
+                    <br>
+                    <label>Endereço</label>
+                    <input name="endereco" class="form-control" type="text" placeholder="Endereço...">
+                    <br>
+                    <label>Idade</label>
+                    <input style="width: 65px;" name="idade" class="form-control" type="number" min="0" placeholder="0">
+                    <br>
+                    <label>Sexo</label>
+                    <select style="width: 140px;" name="sexo" class="form-control">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                    <br>
+                    <input class="btn btn-info btn-md" type="submit" value="enviar">
+                    <a href="{% url 'login'%}" class="btn btn-dark btn-md">Login</a>
+                    <br>
+                </form>
+                <hr>
+                <br>
+                <br>
+
+            </div>
+            <div class="col-md">
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

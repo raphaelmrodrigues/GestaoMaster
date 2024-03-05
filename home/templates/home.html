@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Login {% endblock %}
+
+{% block 'conteudo' %}
+
+
+    {% if status == '0'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-success" role="alert">
+        Usuário deletado com sucesso!
+    </div>
+    {% endif %}
+
+
+    {% if status == '1'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-danger" role="alert">
+        Não é possível deletar o administrador!
+    </div>
+    {% endif %}
+
+    {% if status == '2'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-danger" role="alert">
+        Apenas o administrador pode cadastrar usuários!
+    </div>
+    {% endif %}
+
+    {% if status == '3'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-danger" role="alert">
+        E-mail já cadastrado!
+    </div>
+    {% endif %}
+
+    {% if status == '4'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-success" role="alert">
+        Cadastro realizado com sucesso!
+    </div>
+    {% endif %}
+
+    {% if status == '5'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-danger" role="alert">
+        Erro!
+    </div>
+    {% endif %}
+
+    {% if status == '6'%}
+    <br>
+    <div style="margin-right: 10%; margin-left: 10%" class="alert alert-success" role="alert">
+        Edição realizada com sucesso!
+    </div>
+    {% endif %}
+
+<div style="margin-right: 10%; margin-top: 80px; margin-left: 10% ">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Sexo</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+        <tr style="background-color: beige">
+            <th  scope="row">{{usuario}}</th>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.endereco}}</td>
+            <td>{{usuario.idade}}</td>
+            <td>{{usuario.sexo}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock %}
