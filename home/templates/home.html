@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{% static 'assets/plugins/daterangepicker/daterangepicker.css' %}">
     <!-- summernote -->
     <link rel="stylesheet" href="{% static 'assets/plugins/summernote/summernote-bs4.min.css' %}">
+    <!-- font awesome link -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -167,6 +169,11 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
                     <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'sair' %}" role="button">
+                    <i class="fa-solid fa-arrow-right-from-bracket" title="Sair"></i>
                 </a>
             </li>
         </ul>
